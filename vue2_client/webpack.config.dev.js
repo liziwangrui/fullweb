@@ -60,6 +60,10 @@ module.exports = {
 
         ]
     },
+    /*为css自动添加浏览器前缀*/
+    postcss: [
+      require('autoprefixer')
+  ],
     vue: {
         loaders: {
             js: 'babel'
@@ -70,11 +74,19 @@ module.exports = {
     // },
     resolve: {
         root: path.resolve(__dirname, 'node_modules'),
-        extensions: ['', '.js', '.vue', '.scss']
+        extensions: ['', '.js', '.vue', '.scss'],
+        alias: {
+          components: path.resolve(__dirname,'./src/components'),
+          containers: path.resolve(__dirname,'./src/containers'),
+          actions: path.resolve(__dirname,'./src/actions'),
+          images: path.resolve(__dirname,'./src/images'),
+          common: path.resolve(__dirname,'./src/common'),
+          utils: path.resolve(__dirname,'./src/utils')
+        }
     },
     devServer: {
         contentBase: path.resolve(__dirname, '.'),
-        port: 8885,
+        port: 8886,
         host: '0.0.0.0',
         historyApiFallback: true,
     }
